@@ -1,0 +1,13 @@
+.sass-cache
+.project
+_.*
+.DS_Store
+Thumbs.db
+.settings
+/.gitmodules
+.tmp
+.idea
+OLD*
+node_modules
+bower_components
+*.log

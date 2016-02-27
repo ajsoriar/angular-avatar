@@ -28,9 +28,9 @@
             },
             link: function(scope, element, attrs) {
 
-                console.log("scope:", scope);
-                console.log("element:", element);
-                console.log("attrs:", attrs);
+                //console.log("scope:", scope);
+                //console.log("element:", element);
+                //console.log("attrs:", attrs);
 
                 var _long = 45;
                 var _picture_resolution = 256;

@@ -1,7 +1,7 @@
 /**
  * angular-avatar
  * Amgular Avatar is an AngularJS directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar.
- * @version v0.1.0 - 2016-01-01 
+ * @version v1.0.0 - 2016-02-28
  * @link https://github.com/ajsoriar/angular-avatar
  * @author Andres J Soria R <ajsoriar@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT

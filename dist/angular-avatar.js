@@ -1,7 +1,7 @@
 /**
  * angular-avatar
  * Amgular Avatar is an AngularJS directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar.
- * @version v1.0.0 - 2016-02-28
+ * @version v1.0.1 - 2016-03-12
  * @link https://github.com/ajsoriar/angular-avatar
  * @author Andres J Soria R <ajsoriar@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -14,7 +14,7 @@
     var ngavatar = angular.module('ngAvatar', []);
 
     ngavatar.directive('ngAvatar', [function() {
-
+ 
         return {
             restrict: 'AE',
             replace: true,
@@ -24,7 +24,9 @@
                 bgcolor: '@bgColor',
                 textColor: '@textColor',
                 wrapper: '@wrapper',
-                pictureResolution: '@pictureResolution'
+                pictureResolution: '@pictureResolution',
+                pixelated: '@pixelated',
+                roundShape: '@roundShape'
             },
             link: function(scope, element, attrs) {
 
@@ -38,6 +40,10 @@
                 var _str = scope.initials;
                 var _bgcolor = "#000";
                 var _textcolor = "#fff";
+                var _pixelated = false;
+                var _img_styling = "vertical-align: top;";
+                var _roundShape = false;
+                var _wrapper_styling = "border-radius: 0;display: block;overflow: hidden;";
 
                 if (scope.bgcolor != undefined) {
                     _bgcolor = scope.bgcolor;
@@ -59,7 +65,21 @@
                     _long = scope.width;
                 }
 
-                var generateAvatar = function(name, w, h, bgcolor, textcolor, bgImage) {
+                if (scope.pixelated != undefined) {
+                    _pixelated = scope.pixelated;
+                    if ( _pixelated ) _img_styling += "image-rendering: pixelated; image-rendering: -moz-crisp-edges;";
+                }
+
+                if (scope.roundShape != undefined) {
+                    _roundShape = scope.roundShape;
+                    if ( _roundShape ) _wrapper_styling += "border-radius: "+ _long +"px;";
+                }
+
+                scope.tryOut = function(){
+                    return 7;
+                };
+
+                scope.generateAvatar = function(name, w, h, bgcolor, textcolor, bgImage) {
 
                     var WIDTH = 256;
                     var HEIGHT = 256;
@@ -73,7 +93,7 @@
 
                     if (bgImage != undefined && bgImage != null) {
 
-                    }
+                    } 
 
                     var canvas = document.createElement('canvas');
                     canvas.id = "ngAvatar-" + Date.now();
@@ -93,16 +113,18 @@
                     return img;
                 };
 
-                var imgData = generateAvatar("angular avatar", _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
+                var imgData = scope.generateAvatar("angular avatar", _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
 
                 var html = '';
-                if (_wrapper) html += '<div class="avatar-wrapper" style="border-radius: 0;display: block;overflow: hidden;width: ' + _long + 'px;height: ' + _long + 'px;">';
-                html += '<img src="' + imgData + '" class="avatar-picture" style="vertical-align: top;" width="100%" height="" />';
+                if (_wrapper) html += '<div class="avatar-wrapper" style="'+ _wrapper_styling +'width: ' + _long + 'px;height: ' + _long + 'px;">';
+                html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
                 if (_wrapper) html += '</div>';
 
                 element.replaceWith(html);
-            }
-        };
+                
+            } // link
+        }; // return
+
     }]);
 
 }());

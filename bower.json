@@ -4,7 +4,7 @@
   "authors": [
     "Andres J. Soria R. <ajsoriar@gmail.com>"
   ],
-  "description": "Amgular Avatar is an AngularJS directive that generates a letter's avatar",
+  "description": "Angular Avatar is an AngularJS directive that generates a letter's avatar",
   "main": "src/angular-avatar.js",
   "moduleType": [],
   "keywords": [

@@ -1,7 +1,7 @@
 /**
  * angular-avatar
  * Amgular Avatar is an AngularJS directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar.
- * @version v1.0.1 - 2016-03-12
+ * @version v1.0.2 - 2016-03-13
  * @link https://github.com/ajsoriar/angular-avatar
  * @author Andres J Soria R <ajsoriar@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -26,24 +26,25 @@
                 wrapper: '@wrapper',
                 pictureResolution: '@pictureResolution',
                 pixelated: '@pixelated',
-                roundShape: '@roundShape'
+                roundShape: '@roundShape',
+                class: '@class',
+                style: '@style',
+                string:'@string'
             },
             link: function(scope, element, attrs) {
 
-                //console.log("scope:", scope);
-                //console.log("element:", element);
-                //console.log("attrs:", attrs);
-
-                var _long = 45;
-                var _picture_resolution = 256;
-                var _wrapper = true;
-                var _str = scope.initials;
-                var _bgcolor = "#000";
-                var _textcolor = "#fff";
-                var _pixelated = false;
-                var _img_styling = "vertical-align: top;";
-                var _roundShape = false;
-                var _wrapper_styling = "border-radius: 0;display: block;overflow: hidden;";
+                var _long = 45,
+                    _picture_resolution = 256,
+                    _wrapper = true,
+                    _str = scope.initials || "",
+                    _bgcolor = "#000",
+                    _textcolor = "#fff",
+                    _pixelated = false,
+                    _img_styling = "vertical-align: top;",
+                    _roundShape = false,
+                    _wrapper_styling = "border-radius: 0;display: block;overflow: hidden;",
+                    _extra_classes = "",
+                    _extra_styles = "";
 
                 if (scope.bgcolor != undefined) {
                     _bgcolor = scope.bgcolor;
@@ -67,7 +68,7 @@
 
                 if (scope.pixelated != undefined) {
                     _pixelated = scope.pixelated;
-                    if ( _pixelated ) _img_styling += "image-rendering: pixelated; image-rendering: -moz-crisp-edges;";
+                    if ( _pixelated === "true" ) { _img_styling += "image-rendering: pixelated; image-rendering: -moz-crisp-edges;"; }
                 }
 
                 if (scope.roundShape != undefined) {
@@ -75,7 +76,19 @@
                     if ( _roundShape ) _wrapper_styling += "border-radius: "+ _long +"px;";
                 }
 
-                var generateAvatar = function(name, w, h, bgcolor, textcolor, bgImage) {
+                if (scope.class != undefined) {
+                    _extra_classes = scope.class;
+                }
+
+                if (scope.style != undefined) {
+                    _extra_styles = scope.style;
+                }
+
+                if (scope.string != undefined) {
+                    _str = getInitialsFromString( scope.string );
+                }
+
+                function generateAvatar(name, w, h, bgcolor, textcolor, bgImage) {
 
                     var WIDTH = 256;
                     var HEIGHT = 256;
@@ -109,10 +122,21 @@
                     return img;
                 };
 
-                var imgData = generateAvatar("angular avatar", _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
+                function getInitialsFromString(str){
+
+                    var output = "", 
+                        i = 0, 
+                        str = str.split(" "),
+                        len = str.length;
+                    
+                    for ( i; i < len; i++ ) if ( str[i] != "" ) output += str[i][0].toUpperCase();
+                    return output;
+                };
+
+                var imgData = generateAvatar( _str, _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
 
                 var html = '';
-                if (_wrapper) html += '<div class="avatar-wrapper" style="'+ _wrapper_styling +'width: ' + _long + 'px;height: ' + _long + 'px;">';
+                if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +'width: ' + _long + 'px;height: ' + _long + 'px;'+ _extra_styles +'">';
                 html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
                 if (_wrapper) html += '</div>';
 

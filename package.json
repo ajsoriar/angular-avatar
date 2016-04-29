@@ -1,0 +1,41 @@
+{
+  "name": "angular-avatar",
+  "version": "1.0.2",
+  "description": "Angular Avatar is an AngularJS directive that generates a letter's avatar",
+  "main": "dist/angular-avatar.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajsoriar/angular-avatar.git"
+  },
+  "keywords": [
+    "avatar","letter avatar", "angular avatar", "profile picture", "string avatar", "initials avatar"
+  ],
+  "author": {
+    "name": "Andres J. Soria R.",
+    "email": "<ajsoriar@gmail.com>"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajsoriar/angular-avatar/issues"
+  },
+  "homepage": "https://github.com/ajsoriar/angular-avatar#readme",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-jshint": "0.7.2",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-karma": "^0.12.0",
+    "karma": "^0.13.3",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17"
+  }
+}

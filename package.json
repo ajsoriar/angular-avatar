@@ -1,6 +1,6 @@
 {
   "name": "angular-avatar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Angular Avatar is an AngularJS directive that generates a letter's avatar",
   "main": "dist/angular-avatar.js",
   "directories": {

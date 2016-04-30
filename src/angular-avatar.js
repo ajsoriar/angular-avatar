@@ -1,7 +1,7 @@
 /**
  * angular-avatar
  * Angular Avatar is an AngularJS directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar.
- * @version v1.0.3 - 2016-04-09
+ * @version v1.0.3 - 2016-04-30
  * @link https://github.com/ajsoriar/angular-avatar
  * @author Andres J. Soria R. <ajsoriar@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -30,7 +30,8 @@
                 class: '@class',
                 style: '@style',
                 string:'@string',
-                cornerRadius: '@cornerRadius'
+                cornerRadius: '@cornerRadius',
+                autocolor: '@autocolor'
             },
             link: function(scope, element, attrs) {
 
@@ -46,7 +47,8 @@
                     _wrapper_styling = "border-radius: 0;display: block;overflow: hidden;",
                     _extra_classes = "",
                     _extra_styles = "",
-                    _corner_radius = "0";
+                    _corner_radius = "0",
+                    _autocolor = true;
 
                 if (scope.bgcolor != undefined) {
                     _bgcolor = scope.bgcolor;

@@ -62,11 +62,13 @@ More usage examples ready to copy and paste: :+1:
 <div ng-avatar initials="AJ" bg-color="yellow" text-color="green" picture-resolution="1024" width="32"></div>
 <ng-avatar initials="AS" bg-color="lightgreen" text-color="red" picture-resolution="16" width="128" pixelated="false" ></ng-avatar>
 <ng-avatar initials="AS" bg-color="lightgreen" text-color="red" picture-resolution="16" width="128" pixelated="true" ></ng-avatar>
-<ng-avatar initials="AS" round-shape="true" bg-color="lightgreen" text-color="red" picture-resolution="512" width="42" pixelated="false" class="adres-css" style="border:4px solid red" ></ng-avatar>
+<ng-avatar initials="AS" round-shape="true" bg-color="#a8ff2c" text-color="black" picture-resolution="512" width="42" pixelated="false" class="adres-css" style="border:4px solid red" ></ng-avatar>
 <ng-avatar initials="AS" round-shape="true" string="  andres     jose   soria " bg-color="orange" text-color="#FFF" picture-resolution="256" width="64" pixelated="false" class="adres-css" style="border:4px solid red" ></ng-avatar>
-<ng-avatar round-shape="true" bg-color="orange" text-color="white" picture-resolution="256" width="56" pixelated="false" class="adres-css" style="border:2px solid blue" ></ng-avatar>
+<ng-avatar round-shape="true" bg-color="#36adf2" text-color="white" picture-resolution="256" width="56" pixelated="false" class="adres-css" style="border:2px solid blue" ></ng-avatar>
+<ng-avatar initials="CM" corner-radius="7" bg-color="#3875d7"></ng-avatar>
 ```
 You will get this:
+
 ![Alt text](./demo/angular-avatar-examples.png?raw=true "More examples")
 
 #### 4 Attributes
@@ -75,15 +77,16 @@ You will get this:
 | :------------------- | :----- | :--------------------- |
 | `initials`           | null  | Letters that will be rendered inside the avatar. Commonly the initials of first name and last name or a username. One, two or three letters can be used. |
 | `width`              | 45    | An integer that sets the avatar's width and height in pixels using styles. Height of the avatar will be taken from it's width attribute. height attribute doesn't exist. | integer |
-| `bg-color`           | #000  | This is the background color of the avatar. If not set the background will be black. You can use regular css color's like color names, hex or rgb |
-| `text-color`         | #fff  | The color of the letters. Letters will be white if this attribute is not set. Use regular css color's |
-| `wrapper`            | true  | A boolean false value removes the div that wraps the avatar's image. ng-avatar generates an img tag and a div layer that wraps the image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
-| `picture-resolution` | 256   | This attribute sets the width and heigth values in pexels of the picture that generates this directive. `width` attribute will scale the picture using only styles. | 
+| `bg-color`           | #000  | This is the background color of the avatar. If not set, the background will be black. You can use regular css color's like color names, hex or rgb |
+| `text-color`         | #fff  | The color of the letters. Letters will be white if this attribute is not set. Use regular css colors |
+| `wrapper`            | true  | ng-avatar generates an img tag and a div layer that wraps the image. A boolean false value removes the div that wraps the avatar's image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
+| `picture-resolution` | 256   | This attribute sets the real resolution (width and height in pixels) of the picture that this directive generates. `width` attribute will scale the picture using only styles. | 
 | `pixelated`          | false | If ng-avatar's width is bigger than picture-resolution attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling |
 | `round-shape`        | false | When set to `true` the avatar will take a round shape |
 | `class`              | null  | Use this attribute in the same way it is used in common html tags |
 | `style`              | null  | Use this attribute in the same way it is used in common html tags |
 | `string`             | null  | Here you can put a group of words like a sentence or your complete name. The first letter of each word will be used to generate the avatar's image |
+| `corner-radius`      | 0     | Square avatars can have rounded corners using this property |
 
 #### 4 License
 

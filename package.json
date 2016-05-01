@@ -14,7 +14,14 @@
     "url": "https://github.com/ajsoriar/angular-avatar.git"
   },
   "keywords": [
-    "avatar","letter avatar", "angular avatar", "profile picture", "string avatar", "initials avatar", "ng-avatar"
+    "avatar",
+    "angular-avatar"
+    "letter avatar",
+    "initials avatar",
+    "angular avatar",
+    "profile picture",
+    "string avatar",
+    "ng-avatar"
   ],
   "author": {
     "name": "Andres J. Soria R.",
@@ -27,14 +34,16 @@
   "homepage": "https://github.com/ajsoriar/angular-avatar#readme",
   "devDependencies": {
     "grunt": "*",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-jshint": "0.7.2",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-watch": "*",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-concat": "~0.3.0",
     "grunt-karma": "^0.12.0",
+    "jasmine-core": "^2.4.1",
     "karma": "^0.13.3",
+    "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^0.2.0",
     "phantomjs": "^1.9.17"
   }

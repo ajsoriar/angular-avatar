@@ -15,7 +15,7 @@
   },
   "keywords": [
     "avatar",
-    "angular-avatar"
+    "angular-avatar",
     "letter avatar",
     "initials avatar",
     "angular avatar",
@@ -43,7 +43,7 @@
     "grunt-karma": "^0.12.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.3",
-    "karma-jasmine": "^0.3.8",
+    "karma-jasmine": "^0.1.0",
     "karma-phantomjs-launcher": "^0.2.0",
     "phantomjs": "^1.9.17"
   }

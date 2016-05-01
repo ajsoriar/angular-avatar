@@ -19,9 +19,15 @@ module.exports = function(config) {
         ],
 
         files: [
-            'bower_components/angular/angular.min.js',
-            'bower_components/angular-mocks/angular-mocks.js',
-            //'src/dist/angular-avatar.js',
+        
+            //'bower_components/angular/angular.min.js',
+            //'bower_components/angular-mocks/angular-mocks.js',
+
+            /* We are testing now using version 1.4.5 of angular.js and angular-mocks.js. Version 1.5.0 and 1.5.5 break tests due to some kind of $injector:modulerr? error: Failed to instantiate module ng */
+
+            'node_modules/angular/angular.js',
+            'node_modules/angular-mocks/angular-mocks.js',
+
             'dist/angular-avatar.js',
             'tests/*.js'
         ],

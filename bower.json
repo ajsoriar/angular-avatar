@@ -8,10 +8,11 @@
   "main": "src/angular-avatar.js",
   "moduleType": [],
   "keywords": [
-    "avatar","letter avatar", "angular avatar", "profile picture", "string avatar", "initials avatar"
+    "avatar", "angular-avatar", "letter avatar", "initials avatar", "angular avatar", "profile picture", "string avatar", "ng-avatar"
   ],
   "dependencies": {
-  
+    "angular": "1.4.5",
+    "angular-mocks": "1.4.5"
   },
   "license": "MIT",
   "ignore": [

@@ -19,14 +19,19 @@ describe('Unit testing angular-avatar directive', function() {
     }));
 
     it('Replaces the element with the appropriate content. Display angular-avatar directive in the UI.', function() {
-
+        
+        //expect( 8 ).toBe(8);
+        
         // Compile a piece of HTML containing the directive
         var element = $compile('<div><ng-avatar initials="A"></ng-avatar></div>')($rootScope);
         $rootScope.$digest();
 
         // Check that the compiled element contains the templated content
-        expect(element.html()).toContain("g5aCzwAI3AvXv3hroBLC0txXvvvYefh0YOD1DJtmzZEn");
+        expect(element.html()).toContain("data:image/png;base64"); // By default this directive will generate a png image.
+        
     });
+
+    // Next test: Try jpeg format.
 
 });
 

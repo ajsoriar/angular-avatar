@@ -14,7 +14,7 @@
     "url": "https://github.com/ajsoriar/angular-avatar.git"
   },
   "keywords": [
-    "avatar","letter avatar", "angular avatar", "profile picture", "string avatar", "initials avatar"
+    "avatar","letter avatar", "angular avatar", "profile picture", "string avatar", "initials avatar", "ng-avatar"
   ],
   "author": {
     "name": "Andres J. Soria R.",

@@ -83,10 +83,11 @@ You will get this:
 | `round-shape`        | false | When set to `true` the avatar will take a round shape. By default the avatar will have a square shape. |
 | `corner-radius`      | 0     | Square avatars can have rounded corners using this property |
 | `picture-resolution` | 256   | This attribute sets the real resolution (width and height in pixels) of the picture that this directive generates. `width` attribute will scale the picture using only styles. | 
-| `pixelated`          | false | If ng-avatar's width is bigger than picture-resolution attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling |
+| `pixelated`          | false | If ng-avatar's `width` is bigger than `picture-resolution` attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling |
 | `wrapper`            | true  | ng-avatar generates an img tag and a div layer that wraps the image. A boolean false value removes the div that wraps the avatar's image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
 | `class`              | null  | Use this attribute in the same way it is used in common html tags |
 | `style`              | null  | Use this attribute in the same way it is used in common html tags |
+| `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 
 #### 4 License
 
@@ -112,4 +113,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-**Free Software, Hell Yeah!**
+**Free Software, Yeah!**

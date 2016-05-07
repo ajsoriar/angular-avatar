@@ -31,7 +31,8 @@
                 style: '@style',
                 string:'@string',
                 cornerRadius: '@cornerRadius',
-                autocolor: '@autocolor'
+                autocolor: '@autocolor',
+                pictureFormat: '@pictureFormat'
             },
             link: function(scope, element, attrs) {
 
@@ -48,7 +49,8 @@
                     _extra_classes = "",
                     _extra_styles = "",
                     _corner_radius = "0",
-                    _autocolor = true;
+                    _autocolor = true,
+                    _picture_format = "png";
 
                 if (scope.bgcolor != undefined) {
                     _bgcolor = scope.bgcolor;
@@ -97,6 +99,12 @@
                     _str = getInitialsFromString( scope.string );
                 }
 
+                if (scope.pictureFormat === 'jpeg') {
+                    _picture_format = "jpeg";
+
+                    // jpeg quality
+                }
+
                 function generateAvatar(name, w, h, bgcolor, textcolor, bgImage) {
 
                     var WIDTH = 256;
@@ -129,7 +137,7 @@
                     ctx.fillStyle = textcolor;
                     ctx.fillText(_str, WIDTH / 2, HEIGHT / 1.5);
 
-                    var img = canvas.toDataURL("image/png");
+                    var img = canvas.toDataURL("image/"+ _picture_format );
                     return img;
                 };
 

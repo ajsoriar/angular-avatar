@@ -5,22 +5,10 @@ Angular directive that generates a letter's avatar like Google does in several w
 
 #### 1 Download and Install angular-avatar:
 
-* Bower
-
-	**bower install angular-avatar**
-
-* NPM
-
-	**npm install angular-avatar**
-
-* NuGet
-
-	**PM> Install-Package angular-avatar**
-
-* github
-
-	**https://github.com/ajsoriar/angular-avatar**
-
+ - Bower: **bower install angular-avatar**
+ - NPM: **npm install angular-avatar**
+ - NuGet: **PM> Install-Package angular-avatar**
+ - github: **https://github.com/ajsoriar/angular-avatar**
 
 #### 2 Include dependences: 
 2.1 angular-avatar.js or angular-avatar.min.js are under dist folder.
@@ -70,6 +58,8 @@ More usage examples ready to copy and paste: :+1:
 You will get this:
 
 ![Alt text](./demo/angular-avatar-examples.png?raw=true "More examples")
+
+Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 
 #### 4 Attributes
 

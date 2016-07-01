@@ -31,8 +31,12 @@
                 style: '@style',
                 string:'@string',
                 cornerRadius: '@cornerRadius',
-                autocolor: '@autocolor',
-                pictureFormat: '@pictureFormat'
+                pictureFormat: '@pictureFormat',
+                colorsPalette: '@colorsPalette',
+                autoColor: '@autoColor',
+                fontWeight: '@fontWeight',
+                fontScale: '@fontScale',
+                textShadow: '@textShadow',
             },
             link: function(scope, element, attrs) {
 
@@ -43,14 +47,18 @@
                     _bgcolor = "#000",
                     _textcolor = "#fff",
                     _pixelated = false,
-                    _img_styling = "vertical-align: top;",
+                    _img_styling = "vertical-align:top;",
                     _roundShape = false,
-                    _wrapper_styling = "border-radius: 0;display: block;overflow: hidden;",
+                    _wrapper_styling = "border-radius:0; display:block; overflow:hidden;",
                     _extra_classes = "",
                     _extra_styles = "",
                     _corner_radius = "0",
-                    _autocolor = true,
-                    _picture_format = "png";
+                    _picture_format = "png",
+                    _colors_palette = ["#bdc3c7","#6f7b87","#2c3e50","#2f3193","#662d91","#922790","#ec2176","#ed1c24","#f36622","#f8941e","#fab70f","#fdde00","#d1d219","#8ec73f","#00a650","#00aa9c","#00adef","#0081cd","#005bab"],
+                    _autoColor = false,
+                    _font_weight = 100,
+                    _font_scale = 100,
+                    _text_shadow = false;
 
                 if (scope.bgcolor != undefined) {
                     _bgcolor = scope.bgcolor;
@@ -74,7 +82,9 @@
 
                 if (scope.pixelated != undefined) {
                     _pixelated = scope.pixelated;
-                    if ( _pixelated === "true" ) { _img_styling += "image-rendering: pixelated; image-rendering: -moz-crisp-edges;"; }
+                    if ( _pixelated === "true" ) { 
+                        _img_styling += "image-rendering:pixelated; image-rendering:-moz-crisp-edges;"; 
+                    }
                 }
 
                 if (scope.roundShape != undefined) {
@@ -101,14 +111,38 @@
 
                 if (scope.pictureFormat === 'jpeg') {
                     _picture_format = "jpeg";
+                }
 
-                    // jpeg quality
+                if (scope.colorsPalette != undefined) {
+                    _colors_palette = scope.colorsPalette;
+                }                 
+
+                if (scope.autoColor != undefined) {
+
+                    _autoColor = scope.autoColor;
+                    if ( _autoColor === "true" ) {
+                        var i, lon = _str.length, charIndex=0,colorIndex;
+                        for(i=0; i<lon;i++) charIndex = _str.charCodeAt(i);
+                        colorIndex = charIndex % _colors_palette.length;
+                        _bgcolor = _colors_palette[ colorIndex ];
+                    }
+                }
+
+                if (scope.fontWeight != undefined) {
+                    _font_weight = scope.fontWeight;
+                }
+
+                if (scope.fontScale != undefined) {
+                    _font_scale = scope.fontScale;
+                }
+
+                if (scope.textShadow != undefined) {
+                    _text_shadow = scope.textShadow;
                 }
 
                 function generateAvatar(name, w, h, bgcolor, textcolor, bgImage) {
 
-                    var WIDTH = 256;
-                    var HEIGHT = 256;
+                    var WIDTH = 256, HEIGHT = 256;
 
                     if (w != undefined && w > 0) {
                         if (h != undefined && h > 0) {
@@ -117,25 +151,28 @@
                         }
                     }
 
-                    /*
-                    if (bgImage != undefined && bgImage != null) {
-
-                    } 
-                    */
-
                     var canvas = document.createElement('canvas');
                     canvas.id = "ngAvatar-" + Date.now();
                     canvas.width = WIDTH;
                     canvas.height = HEIGHT;
 
                     var ctx = canvas.getContext('2d');
-
                     ctx.fillStyle = bgcolor;
                     ctx.fillRect(0, 0, WIDTH, HEIGHT);
-                    ctx.font = WIDTH/2 +"px Arial";
+  
+                    var _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
+                    ctx.font = _font_weight +" "+ _font_size +"px sans-serif";
+
+                    if ( _text_shadow === "true" ) {
+                        ctx.shadowColor = "black";
+                        ctx.shadowOffsetX = 0; 
+                        ctx.shadowOffsetY = 0; 
+                        ctx.shadowBlur = 5;                        
+                    }
+
                     ctx.textAlign = "center";
                     ctx.fillStyle = textcolor;
-                    ctx.fillText(_str, WIDTH / 2, HEIGHT / 1.5);
+                    ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
 
                     var img = canvas.toDataURL("image/"+ _picture_format );
                     return img;
@@ -148,14 +185,14 @@
                         str = str.split(" "),
                         len = str.length;
                     
-                    for ( i; i < len; i++ ) if ( str[i] != "" ) output += str[i][0].toUpperCase();
+                    for ( i; i < len; i++ ) if ( str[i] != "" ) output += str[i][0]; //.toUpperCase();
                     return output;
                 };
 
                 var imgData = generateAvatar( _str, _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
 
                 var html = '';
-                if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +'width: ' + _long + 'px;height: ' + _long + 'px;'+ _extra_styles +'">';
+                if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +'width:' + _long + 'px;height:' + _long + 'px;'+ _extra_styles +'">';
                 html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
                 if (_wrapper) html += '</div>';
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script data-require="angularjs@1.5.5" data-semver="1.5.5" src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <script src="https://npmcdn.com/angular-avatar/dist/angular-avatar.min.js"></script> 
+    <script>
+        (function(){
+
+            var app = angular.module('myApp', ['ngAvatar']);
+            app.controller('HelloController', function(){
+                console.log("controller!");
+            });
+
+        })();
+
+    </script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="HelloController">
+    
+    <h1>Hello angular-avatar!</h1>
+    
+    <ng-avatar initials="A"></ng-avatar>
+    <div ng-avatar initials="AS" bg-color="#00FF00"></div>
+    <ng-avatar initials="AJS" bg-color="cyan" text-color="blue" round-shape="true" ></ng-avatar>
+    <div ng-avatar initials="AJ" bg-color="red" text-color="yellow" picture-resolution="512" width="64"></div>
+    <div ng-avatar initials="AJ" bg-color="yellow" text-color="green" picture-resolution="1024" width="32"></div>
+    <ng-avatar initials="AS" bg-color="lightgreen" text-color="red" picture-resolution="16" width="128" pixelated="false" ></ng-avatar>
+    <ng-avatar initials="AS" bg-color="#99f499" text-color="red" picture-resolution="16" width="128" pixelated="true" ></ng-avatar>
+    <ng-avatar initials="AS" round-shape="true" bg-color="#a8ff2c" text-color="black" picture-resolution="512" width="42" pixelated="false" class="adres-css" style="border:4px solid red" ></ng-avatar>
+    <ng-avatar initials="AS" round-shape="true" string="  andres     jose   soria " bg-color="orange" text-color="#FFF" picture-resolution="256" width="64" pixelated="false" class="adres-css" style="border:4px solid red" ></ng-avatar>
+    <ng-avatar round-shape="true" bg-color="#36adf2" text-color="white" picture-resolution="256" width="56" pixelated="false" class="adres-css" style="border:2px solid blue" ></ng-avatar>
+    <ng-avatar initials="CM" corner-radius="7" bg-color="#3875d7"></ng-avatar>
+    <div ng-avatar initials="jpg" picture-format="jpeg" bg-color="red" text-color="yellow" width="64" corner-radius="5" ></div>
+    <div ng-avatar initials="png" picture-format="png" bg-color="purple" text-color="yellow" width="64" corner-radius="5" ></div>
+    
+  </body>
+
+</html>

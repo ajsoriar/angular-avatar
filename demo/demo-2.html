@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .group{
+            line-height: 0;
+            margin-bottom: 10px;
+        }
+        
+        .avatar{
+            display: inline-block !important;
+            margin: 1px;  
+        }
+
+    </style>
+    <script data-require="angularjs@1.5.5" data-semver="1.5.5" src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <!--<script src="https://npmcdn.com/angular-avatar/dist/angular-avatar.min.js"></script>-->
+    <script src="../dist/angular-avatar.min.js"></script>
+    <script>
+
+        (function(){
+            var app = angular.module('myApp', ['ngAvatar']);
+            app.controller('HelloController', function(){
+                console.log("controller!");
+            });
+        })();
+
+    </script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="HelloController">
+    
+    <h1>Hello angular-avatar autocolor!</h1>
+    
+    <pre>auto-color="true" font-weight="100" font-scale="150"</pre>
+    <div id="group_1" class="group"></div>
+
+    <pre>auto-color="true" font-weight="400" font-scale="100"</pre>
+    <div id="group_2" class="group"></div>
+
+    <pre>width="100" auto-color="true" font-weight="700" font-scale="50" round-shape="true"</pre>
+    <div id="group_3" class="group"></div>
+
+    <pre>width="120" auto-color="true" font-weight="100" font-scale="125" corner-radius="7" text-shadow="true"</pre>
+    <div id="group_4" class="group"></div>
+
+    <script>
+
+        (function(){
+
+            var leters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                str,
+                i,
+                j,
+                k,
+                lon = leters.length;
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                str += '<ng-avatar initials="'+ leters[i] +'" auto-color="true" class="avatar" font-weight="100" font-scale="150" ></ng-avatar>';
+            }
+            document.getElementById("group_1").innerHTML = str;
+
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                j = Math.floor( Math.random() * lon );
+                str += '<ng-avatar initials="'+ leters[i]+leters[j] +'" auto-color="true" class="avatar" font-weight="400" font-scale="100" ></ng-avatar>';
+            }
+            document.getElementById("group_2").innerHTML = str;
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                j = Math.floor( Math.random() * lon );
+                k = Math.floor( Math.random() * lon );
+                str += '<ng-avatar initials="'+ leters[i]+leters[j]+leters[k] +'" width="90" auto-color="true" class="avatar" font-weight="700" font-scale="50" round-shape="true" ></ng-avatar>';
+            }
+            document.getElementById("group_3").innerHTML = str;
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                j = Math.floor( Math.random() * lon );
+                k = Math.floor( Math.random() * lon );
+                str += '<ng-avatar initials="'+ leters[i] +'" width="90" auto-color="true" class="avatar" font-weight="100" font-scale="125" corner-radius="7" text-shadow="true" ></ng-avatar>';
+            }
+            document.getElementById("group_4").innerHTML = str;
+
+        })();
+
+    </script>
+    
+  </body>
+
+</html>

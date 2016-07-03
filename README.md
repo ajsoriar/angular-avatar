@@ -1,5 +1,7 @@
 # angular-avatar [![Build Status](https://travis-ci.org/ajsoriar/angular-avatar.svg?branch=master)](https://travis-ci.org/ajsoriar/angular-avatar)
-Angular directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar. The generated avatar will be a picture that can be retrieved as a jpeg or png in order to be stored in back-end.
+Angular Avatar is a simple and lightweight AngularJS directive that generates a letter's avatar like Microsoft or Google do in their web apps. First letter of each word in a string or a group of initials will be used to generate the avatar. The image of the avatar will be rendered in an html img tag as a real png or jpeg. The image data can be retrieved using javascript to be stored it back-end giving you an initial profile picture in your web or mobile apps when the user does not upload one. Several angular atributes are available to configure the output: size, shape, resolution, colors, etc.
+
+![Alt text](./demo/angular-avatar-autocolor-example.png?raw=true "Auto color examples")
 
 ## Quick start. 
 
@@ -78,6 +80,8 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `class`              | null  | Use this attribute in the same way it is used in common html tags |
 | `style`              | null  | Use this attribute in the same way it is used in common html tags |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
+| `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |
+| `text-shadow`     | false   | This paints an elegant thin shadow around the edges of each letter |
 
 #### 4 License
 

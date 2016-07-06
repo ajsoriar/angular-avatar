@@ -1,7 +1,7 @@
 /**
  * angular-avatar
  * Angular Avatar is an AngularJS directive that generates a letter's avatar like Google does in several web apps. First letter of each word in a string will be used to generate the avatar.
- * @version v1.0.4 - 2016-05-08
+ * @version v1.1.0 - 2016-07-06
  * @link https://github.com/ajsoriar/angular-avatar
  * @author Andres J. Soria R. <ajsoriar@gmail.com>
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -192,7 +192,7 @@
                 var imgData = generateAvatar( _str, _picture_resolution, _picture_resolution, _bgcolor, _textcolor, null);
 
                 var html = '';
-                if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +'width:' + _long + 'px;height:' + _long + 'px;'+ _extra_styles +'">';
+                if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +' width:' + _long + 'px; height:' + _long + 'px; '+ _extra_styles +'">';
                 html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
                 if (_wrapper) html += '</div>';
 

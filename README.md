@@ -3,7 +3,7 @@ Angular Avatar is a simple and lightweight AngularJS directive that generates a 
 
 ![angular-avatar auto-color feature examples](./demo/angular-avatar-autocolor-example.png?raw=true "angular-avatar auto-color feature examples")
 
-This example in action in plunker: http://embed.plnkr.co/WI3IetG9qEMroXowyRR6/
+This example in plunker: https://plnkr.co/edit/bhnvU3?p=preview
 
 ## Quick start. 
 

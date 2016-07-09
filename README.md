@@ -1,4 +1,9 @@
 # angular-avatar [![Build Status](https://travis-ci.org/ajsoriar/angular-avatar.svg?branch=master)](https://travis-ci.org/ajsoriar/angular-avatar)
+
+[![npm version](https://badge.fury.io/js/angular-avatar.svg)](https://badge.fury.io/js/angular-avatar)
+[![Bower version](https://badge.fury.io/bo/angular-avatar.svg)](https://badge.fury.io/bo/angular-avatar)
+[![NuGet version](https://badge.fury.io/nu/angular-avatar.svg)](https://badge.fury.io/nu/angular-avatar)
+
 Angular Avatar is a simple and lightweight AngularJS directive that generates a letter's avatar like Microsoft or Google do in their web apps. First letter of each word in a string or a group of initials will be used to generate the avatar. The image of the avatar will be rendered in an html img tag as a real png or jpeg. The image data can be retrieved using javascript to be stored in back-end giving you an initial profile picture in your web or mobile apps when the user does not upload one. Several angular atributes are available to configure the output: size, shape, resolution, colors, etc.
 
 ![angular-avatar auto-color feature examples](./demo/angular-avatar-autocolor-example.png?raw=true "angular-avatar auto-color feature examples")
@@ -72,20 +77,20 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | option               | default | description           |
 | :------------------- | :----- | :--------------------- |
 | `initials`           | null  | Letters that will be rendered inside the avatar. Commonly the initials of first name and last name or a username. One, two or three letters can be used. |
-| `string`             | null  | Here you can put a group of words like a sentence or your complete name. The first letter of each word will be used to generate the avatar's image |
-| `width`              | 45    | An integer that sets the avatar's width and height in pixels using styles. Height of the avatar will be taken from it's width attribute. height attribute doesn't exist. | integer |
-| `bg-color`           | #000  | This is the background color of the avatar. If not set, the background will be black. You can use regular css color's like color names, hex or rgb |
-| `text-color`         | #fff  | The color of the letters. Letters will be white if this attribute is not set. Use regular css colors |
+| `string`             | null  | Here you can put a group of words like a sentence or your complete name. The first letter of each word will be used to generate the avatar's image. |
+| `width`              | 45    | An integer that sets the avatar's width and height in pixels using styles. Height of the avatar will be taken from it's width attribute. height attribute doesn't exist. |
+| `bg-color`           | #000  | This is the background color of the avatar. If not set, the background will be black. You can use regular css color's like color names, hex or rgb. |
+| `text-color`         | #fff  | The color of the letters. Letters will be white if this attribute is not set. Use regular css colors. |
 | `round-shape`        | false | When set to `true` the avatar will take a round shape. By default the avatar will have a square shape. |
-| `corner-radius`      | 0     | Square avatars can have rounded corners using this property |
+| `corner-radius`      | 0     | Square avatars can have rounded corners using this property. |
 | `picture-resolution` | 256   | This attribute sets the real resolution (width and height in pixels) of the picture that this directive generates. `width` attribute will scale the picture using only styles. | 
-| `pixelated`          | false | If ng-avatar's `width` is bigger than `picture-resolution` attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling |
+| `pixelated`          | false | If ng-avatar's `width` is bigger than `picture-resolution` attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling. |
 | `wrapper`            | true  | ng-avatar generates an img tag and a div layer that wraps the image. A boolean false value removes the div that wraps the avatar's image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
-| `class`              | null  | Use this attribute in the same way it is used in common html tags |
-| `style`              | null  | Use this attribute in the same way it is used in common html tags |
+| `class`              | null  | Use this attribute in the same way it is used in common html tags. |
+| `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |
-| `text-shadow`     | false   | This paints an elegant thin shadow around the edges of each letter |
+| `text-shadow`     | false   | This paints an elegant thin shadow around the edges of each letter. |
 
 #### 4 License
 

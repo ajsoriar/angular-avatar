@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .group{
+            line-height: 0;
+            margin-bottom: 10px;
+        }
+        
+        .avatar{
+            display: inline-block !important;
+            margin: 1px;  
+        }
+
+    </style>
+    <script data-require="angularjs@1.5.5" data-semver="1.5.5" src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <!--<script src="https://npmcdn.com/angular-avatar/dist/angular-avatar.min.js"></script>-->
+    <script src="../dist/angular-avatar.min.js"></script>
+    <!--<script src="../src/angular-avatar.js"></script>-->
+    <script>
+
+        (function(){
+          
+            angular.module('myApp', ['ngAvatar']).controller('UserProfileController', UserProfileController);
+
+            UserProfileController.$inject = ['$scope', '$timeout', '$interval'];
+
+            function UserProfileController($scope, $timeout, $interval) {
+
+                // ng-avatar works if data immediately set
+                //scope.profile = {name: 'Joe User'};
+
+                // Simulate a delay in data being set, as there is when fetching from back-end
+                $timeout(function() {
+                    // ng-avatar does not work if there is a delay in data being set
+                    $scope.profile = {name: 'Joe User'};
+                }, 1)
+
+                var leters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    lon = leters.length;
+
+                $scope.reverse = function(s){
+                    if (s != undefined ) return s.split("").reverse().join("");
+                    return "";
+                }
+
+                function getRandomInitials(){
+                    var j = Math.floor( Math.random() * lon );
+                    var k = Math.floor( Math.random() * lon );
+                    return leters[j]+leters[k];
+                }
+
+                $interval(function(){
+                    $scope.randomInitials = getRandomInitials();
+                }, 2000);
+
+            }
+
+        })();
+
+    </script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="UserProfileController">
+
+    <h1>Hello {{profile.name}}! Hello data binding.</h1>
+
+    <pre>This is an static directive</pre>
+    <ng-avatar string="AS" auto-color="true"></ng-avatar>
+
+    <div id="group_1" class="group"></div>
+
+    <br/>
+
+    Change this text:
+    
+    <input type="text" ng-model="profile.name">
+
+    <pre>We've got a bound directive here (string attribute)</pre>
+    <ng-avatar bind="true" string="{{ profile.name }}" auto-color="true"></ng-avatar>
+    <ng-avatar bind="true" string="{{ reverse(profile.name) }}" auto-color="true" font-weight="700"></ng-avatar>
+
+    <span style="display: inline-block">'auto-color="true"' but 'bg-color="cyan"' overwrites auto-color value.</span> 
+    <ng-avatar bind="true" string="{{ profile.name }}" auto-color="true" bg-color="cyan" text-shadow="true" font-weight="500"></ng-avatar> 
+
+    <pre>We've got a bound directive here (initials attribute)</pre>
+    <ng-avatar bind="true" initials="{{ profile.name }}" auto-color="true"></ng-avatar>
+
+    <pre>We've got a bound directive here that will change all the time</pre>
+    <ng-avatar bind="true" initials="{{ randomInitials }}" auto-color="true"></ng-avatar>
+
+  </body>
+
+</html>

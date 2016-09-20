@@ -32,7 +32,7 @@
                 string:'@string',
                 cornerRadius: '@cornerRadius',
                 pictureFormat: '@pictureFormat',
-                colorsPalette: '@colorsPalette',
+                colorsPalette: '=colorsPalette',
                 autoColor: '@autoColor',
                 fontWeight: '@fontWeight',
                 fontScale: '@fontScale',

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .group{
+            line-height: 0;
+            margin-bottom: 10px;
+        }
+        
+        .avatar{
+            display: inline-block !important;
+            margin: 1px;  
+        }
+
+    </style>
+    <script data-require="angularjs@1.5.5" data-semver="1.5.5" src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <!--<script src="https://unpkg.com/angular-avatar/dist/angular-avatar.min.js"></script>-->
+    <!--<script src="../dist/angular-avatar.min.js"></script>-->
+    <script src="../src/angular-avatar.js"></script>
+    <script>
+
+        (function(){
+
+            var app = angular.module('myApp', ['ngAvatar']);
+
+            //app.value( ‘global_colors’, ["#ff00ff","#ffff00","#00ffff"] );
+            app.controller('HelloController', function( $scope, $compile ){
+
+                console.log("HelloController!");
+
+                function compile( el, str ){ el = document.getElementById( el ); el.innerHTML = str; $compile( el )( $scope ); }
+
+                var leters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                    str = "",
+                    i,
+                    j,
+                    k,
+                    lon = leters.length;
+
+                /* Example 1 */
+
+                for (i = 0; i < lon; i++) {
+                    j = Math.floor( Math.random() * lon );
+                    k = Math.floor( Math.random() * lon );
+                    str += '<ng-avatar initials="'+ leters[i] +'" width="30" auto-color="true" class="avatar" font-weight="800" font-scale="125" corner-radius="3" text-shadow="true" ></ng-avatar>';
+                }
+
+                var el = 
+                
+                compile( "group_1", str );
+
+
+                /* Example 2 */
+
+                $scope.new_palette = ["#d3e22b","#bbd534","#a6ca3a","#8fbe3d","#79b340","#63aa42","#48a044","#249744"];
+                str = "";
+
+                for (i = 0; i < lon; i++) {
+                    j = Math.floor( Math.random() * lon );
+                    k = Math.floor( Math.random() * lon );
+                    str += '<ng-avatar initials="'+ leters[i] +'" width="30" auto-color="true" colors-palette="new_palette" class="avatar" font-weight="800" font-scale="125" corner-radius="3" text-shadow="true" ></ng-avatar>';
+                }
+
+                compile( "group_2", str );
+
+                /* Example 3 */
+
+                $scope.new_palette = ["#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"];
+                str = "";
+                var leters2 = "angularavatar";
+
+                for (i = 0; i < leters2.length; i++) {
+                    j = Math.floor( Math.random() * lon );
+                    k = Math.floor( Math.random() * lon );
+                    str += '<ng-avatar initials="'+ leters2[i] +'" width="30" auto-color="true" colors-palette="new_palette" class="avatar" font-weight="800" font-scale="125" corner-radius="3" text-shadow="true" ></ng-avatar>';
+                }
+
+                compile( "group_3", str );
+            });
+
+        })();
+
+    </script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="HelloController">
+    
+    <h1>Hello angular-avatar custom color palette!</h1>
+
+    <pre>Default color's palette:</pre>
+    <div id="group_1" class="group"></div>
+
+    <br>
+    <pre>Custom color's palette:
+    <br>$scope.new_palette = ["#d3e22b","#bbd534","#a6ca3a","#8fbe3d","#79b340","#63aa42","#48a044","#249744"]; 
+    <br>colors-palette="new_palette"</pre>
+    <div id="group_2" class="group"></div>
+
+    <br>
+    <ng-avatar initials="A" width="30" auto-color="true" colors-palette="new_palette" class="avatar" font-weight="800" font-scale="125" corner-radius="3" text-shadow="true" ></ng-avatar>
+
+    <br>
+    <pre>Custom color's palette: $scope.new_palette = ["#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"];</pre>
+    <div id="group_3" class="group"></div>
+    
+  </body>
+
+</html>

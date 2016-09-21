@@ -90,6 +90,7 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |
+| `colors-palette`     | default colors | Change the palette used by auto-color. You can provide an array in your HTML or via the controller. `colors-palette='["#ffe082" ,"#ffd54f","#ffca28","#ffc107","#ffb300","#ffa000", "#ff8f00","#ff6f00","#e65100","#ef6c00","#f57c00", "#fb8c00", "#ff9800", "#ffa726"]'` or `colors-palette="vm.colorsPalette"` or `colors-palette="$scope.colorsPalette"` |
 | `text-shadow`     | false   | This paints an elegant thin shadow around the edges of each letter. |
 
 #### 4 License

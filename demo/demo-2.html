@@ -47,6 +47,9 @@
     <pre>width="120" auto-color="true" font-weight="100" font-scale="125" corner-radius="7" text-shadow="true"</pre>
     <div id="group_4" class="group"></div>
 
+    <pre>width="120" auto-color="true" colors-palette='["#ffe082" ,"#ffd54f","#ffca28","#ffc107","#ffb300","#ffa000", "#ff8f00","#ff6f00","#e65100","#ef6c00","#f57c00", "#fb8c00", "#ff9800", "#ffa726"]' font-weight="100" font-scale="125" corner-radius="7" text-shadow="true"</pre>
+    <div id="group_5" class="group"></div>
+
     <script>
 
         (function(){
@@ -87,6 +90,14 @@
                 str += '<ng-avatar initials="'+ leters[i] +'" width="90" auto-color="true" class="avatar" font-weight="100" font-scale="125" corner-radius="7" text-shadow="true" ></ng-avatar>';
             }
             document.getElementById("group_4").innerHTML = str;
+            
+            str = '';
+            for (i = 0; i < lon; i++) {
+                j = Math.floor( Math.random() * lon );
+                k = Math.floor( Math.random() * lon );
+                str += '<ng-avatar initials="'+ leters[i] +'" width="90" auto-color="true" colors-palette=\'["#ffe082" ,"#ffd54f","#ffca28","#ffc107","#ffb300","#ffa000", "#ff8f00","#ff6f00","#e65100","#ef6c00","#f57c00", "#fb8c00", "#ff9800", "#ffa726"]\' class="avatar" font-weight="100" font-scale="125" corner-radius="7" text-shadow="true" ></ng-avatar>';
+            }
+            document.getElementById("group_5").innerHTML = str;
 
         })();
 

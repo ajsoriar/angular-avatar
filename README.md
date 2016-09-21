@@ -79,7 +79,6 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `initials`           | null  | Letters that will be rendered inside the avatar. Commonly the initials of first name and last name or a username. One, two or three letters can be used. |
 | `string`             | null  | Here you can put a group of words like a sentence or your complete name. The first letter of each word will be used to generate the avatar's image. |
 | `bind`               | null  | The avatar component will listen for changes in `string` and `initials`. If the value of the data source in the controller changes the avatar will change as well. |
-| `colors-palette`     | null  | Here you can inject an array of colors that will override angular-avatar's default palette. |
 | `max-length`         | null  | Limits the number of characters that the avatar displays. |
 | `width`              | 45    | An integer that sets the avatar's width and height in pixels using styles. Height of the avatar will be taken from it's width attribute. height attribute doesn't exist. |
 | `bg-color`           | #000  | This is the background color of the avatar. If not set, the background will be black. You can use regular css color's like color names, hex or rgb. |
@@ -93,7 +92,8 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |
-| `text-shadow`     | false   | This paints an elegant thin shadow around the edges of each letter. |
+| `colors-palette`     | default colors | Change the palette used by `auto-color`. You can provide an array in your HTML or via the controller. |
+| `text-shadow`        | false | This paints an elegant thin shadow around the edges of each letter. |
 
 #### 4 License
 

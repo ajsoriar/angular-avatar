@@ -32,12 +32,13 @@
                 string:'@string',
                 cornerRadius: '@cornerRadius',
                 pictureFormat: '@pictureFormat',
-                colorsPalette: '@colorsPalette',
+                colorsPalette: '=colorsPalette',
                 autoColor: '@autoColor',
                 fontWeight: '@fontWeight',
                 fontScale: '@fontScale',
                 textShadow: '@textShadow',
                 bind: '@bind',
+                maxLength: '@maxLength'
             },
             link: function(scope, element, attrs) {
 
@@ -117,6 +118,10 @@
                         _str = getInitialsFromString( scope.string );
                     }
 
+                    if (scope.maxLength != undefined) {
+                        _str = _str.substr(0, scope.maxLength );
+                    }
+
                     if (scope.pictureFormat === 'jpeg') {
                         _picture_format = "jpeg";
                     }
@@ -189,9 +194,8 @@
                     ctx.fillStyle = textcolor;
                     ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
 
-                    var img = canvas.toDataURL("image/"+ _picture_format );
-                    return img;
-                };
+                    return canvas.toDataURL("image/"+ _picture_format );
+                }
 
                 function getInitialsFromString(str){
 
@@ -202,7 +206,7 @@
                     
                     for ( i; i < len; i++ ) if ( str[i] != "" ) output += str[i][0]; //.toUpperCase();
                     return output;
-                };
+                }
 
                 var currentElement = element;
 

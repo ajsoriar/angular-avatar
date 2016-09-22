@@ -1,6 +1,6 @@
 {
   "name": "angular-avatar",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Angular Avatar is a simple and lightweight AngularJS directive that generates a letter's avatar like Microsoft or Google do in their web apps. First letter of each word in a string or a group of initials will be used to generate the avatar. The image of the avatar will be rendered in an html img tag as a real png or jpeg. The image data can be retrieved using javascript to be stored in back-end giving you an initial profile picture in your web or mobile apps when the user does not upload one. Several angular atributes are available to configure the output: size, shape, resolution, colors, etc.",
   "main": "dist/angular-avatar.js",
   "directories": {

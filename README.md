@@ -89,6 +89,7 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `pixelated`          | false | If ng-avatar's `width` is bigger than `picture-resolution` attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling. |
 | `wrapper`            | true  | ng-avatar generates an img tag and a div layer that wraps the image. A boolean false value removes the div that wraps the avatar's image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
 | `class`              | null  | Use this attribute in the same way it is used in common html tags. |
+| `imgClass`           | null  | Use this attribute in the same way it is used in common html tags. |
 | `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |

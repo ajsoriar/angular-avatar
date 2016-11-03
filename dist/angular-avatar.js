@@ -61,7 +61,8 @@
                     _font_weight = 100,
                     _font_scale = 100,
                     _text_shadow = false,
-                    _bind = false;
+                    _bind = false,
+                    _img_width = "100%";
 
                 function checkValues(){
 
@@ -73,21 +74,24 @@
                         _textcolor = scope.textColor;
                     }
 
-                    if (scope.wrapper != undefined) {
-                        _wrapper = scope.wrapper;
-                    }
-
                     if (scope.pictureResolution != undefined) {
                         _picture_resolution = scope.pictureResolution;
                     }
 
                     if (scope.width != undefined) {
                         _long = scope.width;
+                    }   
+
+                    if (scope.wrapper != undefined) {
+                        _wrapper = scope.wrapper;
+                        if ( _wrapper === false ) { 
+                            _img_width = _long;
+                        }
                     }
 
                     if (scope.pixelated != undefined) {
                         _pixelated = scope.pixelated;
-                        if ( _pixelated === "true" ) { 
+                        if ( _pixelated === true ) { 
                             _img_styling += "image-rendering:pixelated; image-rendering:-moz-crisp-edges;"; 
                         }
                     }
@@ -137,7 +141,7 @@
                         if (scope.autoColor != undefined) {
 
                             _autoColor = scope.autoColor;
-                            if ( _autoColor === "true" ) {
+                            if ( _autoColor === true ) {
                                 var i, lon = _str.length, charIndex=0,colorIndex;
                                 for(i=0; i<lon;i++) charIndex = _str.charCodeAt(i);
                                 colorIndex = charIndex % _colors_palette.length;
@@ -183,7 +187,7 @@
                     var _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
                     ctx.font = _font_weight +" "+ _font_size +"px sans-serif";
 
-                    if ( _text_shadow === "true" ) {
+                    if ( _text_shadow === true ) {
                         ctx.shadowColor = "black";
                         ctx.shadowOffsetX = 0; 
                         ctx.shadowOffsetY = 0; 
@@ -192,7 +196,8 @@
 
                     ctx.textAlign = "center";
                     ctx.fillStyle = textcolor;
-                    ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
+                    //ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
+                    ctx.fillText( _str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) );
 
                     return canvas.toDataURL("image/"+ _picture_format );
                 }
@@ -216,7 +221,7 @@
 
                     var html = '';
                     if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +' width:' + _long + 'px; height:' + _long + 'px; '+ _extra_styles +'">';
-                    html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
+                    html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="'+ _img_width +'" height="" />';
                     if (_wrapper) html += '</div>';
 
                     var replacementElement = angular.element(html);
@@ -225,7 +230,7 @@
                 }
 
                 checkValues();
-                if ( _bind === "true" ){
+                if ( _bind === true ){
 
                     scope.$watch( 'string', function ( value ) {
 

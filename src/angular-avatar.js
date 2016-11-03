@@ -61,7 +61,8 @@
                     _font_weight = 100,
                     _font_scale = 100,
                     _text_shadow = false,
-                    _bind = false;
+                    _bind = false,
+                    _img_width = "100%";
 
                 function checkValues(){
 
@@ -73,12 +74,15 @@
                         _textcolor = scope.textColor;
                     }
 
-                    if (scope.wrapper != undefined) {
-                        _wrapper = scope.wrapper;
-                    }
-
                     if (scope.pictureResolution != undefined) {
                         _picture_resolution = scope.pictureResolution;
+                    }
+                    
+                    if (scope.wrapper != undefined) {
+                        _wrapper = scope.wrapper;
+                        if ( _wrapper === false ) { 
+                            _img_width = _picture_resolution +"px";
+                        }
                     }
 
                     if (scope.width != undefined) {
@@ -216,7 +220,7 @@
 
                     var html = '';
                     if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +' width:' + _long + 'px; height:' + _long + 'px; '+ _extra_styles +'">';
-                    html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="100%" height="" />';
+                    html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="'+ _img_width +'" height="" />';
                     if (_wrapper) html += '</div>';
 
                     var replacementElement = angular.element(html);

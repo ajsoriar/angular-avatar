@@ -87,7 +87,7 @@
 
                     if (scope.pixelated != undefined) {
                         _pixelated = scope.pixelated;
-                        if ( _pixelated === "true" ) { 
+                        if ( _pixelated === true ) { 
                             _img_styling += "image-rendering:pixelated; image-rendering:-moz-crisp-edges;"; 
                         }
                     }
@@ -137,7 +137,7 @@
                         if (scope.autoColor != undefined) {
 
                             _autoColor = scope.autoColor;
-                            if ( _autoColor === "true" ) {
+                            if ( _autoColor === true ) {
                                 var i, lon = _str.length, charIndex=0,colorIndex;
                                 for(i=0; i<lon;i++) charIndex = _str.charCodeAt(i);
                                 colorIndex = charIndex % _colors_palette.length;
@@ -183,7 +183,7 @@
                     var _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
                     ctx.font = _font_weight +" "+ _font_size +"px sans-serif";
 
-                    if ( _text_shadow === "true" ) {
+                    if ( _text_shadow === true ) {
                         ctx.shadowColor = "black";
                         ctx.shadowOffsetX = 0; 
                         ctx.shadowOffsetY = 0; 
@@ -225,7 +225,7 @@
                 }
 
                 checkValues();
-                if ( _bind === "true" ){
+                if ( _bind === true ){
 
                     scope.$watch( 'string', function ( value ) {
 

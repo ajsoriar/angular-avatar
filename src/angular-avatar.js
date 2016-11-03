@@ -77,16 +77,16 @@
                     if (scope.pictureResolution != undefined) {
                         _picture_resolution = scope.pictureResolution;
                     }
-                    
-                    if (scope.wrapper != undefined) {
-                        _wrapper = scope.wrapper;
-                        if ( _wrapper === false ) { 
-                            _img_width = _picture_resolution +"px";
-                        }
-                    }
 
                     if (scope.width != undefined) {
                         _long = scope.width;
+                    }   
+
+                    if (scope.wrapper != undefined) {
+                        _wrapper = scope.wrapper;
+                        if ( _wrapper === false ) { 
+                            _img_width = _long;
+                        }
                     }
 
                     if (scope.pixelated != undefined) {
@@ -196,7 +196,8 @@
 
                     ctx.textAlign = "center";
                     ctx.fillStyle = textcolor;
-                    ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
+                    //ctx.fillText(_str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) + 5 );
+                    ctx.fillText( _str, WIDTH / 2, HEIGHT - (HEIGHT / 2) + ( _font_size / 3) );
 
                     return canvas.toDataURL("image/"+ _picture_format );
                 }

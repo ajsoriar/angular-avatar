@@ -28,6 +28,7 @@
                 pixelated: '=pixelated',
                 roundShape: '=roundShape',
                 class: '@class',
+                imgClass: '@imgClass',
                 style: '@style',
                 string:'@string',
                 cornerRadius: '@cornerRadius',
@@ -53,6 +54,7 @@
                     _roundShape = false,
                     _wrapper_styling = "border-radius:0; display:block; overflow:hidden;",
                     _extra_classes = "",
+                    _extra_img_classes = "",
                     _extra_styles = "",
                     _corner_radius = "0",
                     _picture_format = "png",
@@ -108,6 +110,10 @@
 
                     if (scope.class != undefined) {
                         _extra_classes = scope.class;
+                    }
+
+                    if (scope.imageClass != undefined) {
+                        _extra_image_classes = scope.imageClass;
                     }
 
                     if (scope.style != undefined) {
@@ -221,7 +227,7 @@
 
                     var html = '';
                     if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +' width:' + _long + 'px; height:' + _long + 'px; '+ _extra_styles +'">';
-                    html += '<img src="' + imgData + '" class="avatar-picture" style="'+ _img_styling +'" width="'+ _img_width +'" height="" />';
+                    html += '<img src="' + imgData + '" class="avatar-picture '+ _extra_img_classes +'" style="'+ _img_styling +'" width="'+ _img_width +'" height="" />';
                     if (_wrapper) html += '</div>';
 
                     var replacementElement = angular.element(html);

@@ -39,7 +39,8 @@
                 fontScale: '@fontScale',
                 textShadow: '=textShadow',
                 bind: '=bind',
-                maxLength: '@maxLength'
+                maxLength: '@maxLength',
+                upperCase: '=upperCase'
             },
             link: function(scope, element, attrs) {
 
@@ -64,7 +65,8 @@
                     _font_scale = 100,
                     _text_shadow = false,
                     _bind = false,
-                    _img_width = "100%";
+                    _img_width = "100%",
+                    _upperCase = false;
 
                 function checkValues(){
 
@@ -166,6 +168,10 @@
 
                     if (scope.textShadow != undefined) {
                         _text_shadow = scope.textShadow;
+                    }
+
+                    if (scope.upperCase === true) {
+                        _str = _str.toUpperCase();
                     }
 
                 }

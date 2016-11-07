@@ -114,8 +114,8 @@
                         _extra_classes = scope.class;
                     }
 
-                    if (scope.imageClass != undefined) {
-                        _extra_image_classes = scope.imageClass;
+                    if (scope.imgClass != undefined) {
+                        _extra_img_classes = scope.imgClass;
                     }
 
                     if (scope.style != undefined) {

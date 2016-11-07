@@ -39,7 +39,8 @@
                 fontScale: '@fontScale',
                 textShadow: '=textShadow',
                 bind: '=bind',
-                maxLength: '@maxLength'
+                maxLength: '@maxLength',
+                upperCase: '=upperCase'
             },
             link: function(scope, element, attrs) {
 
@@ -64,7 +65,8 @@
                     _font_scale = 100,
                     _text_shadow = false,
                     _bind = false,
-                    _img_width = "100%";
+                    _img_width = "100%",
+                    _upperCase = false;
 
                 function checkValues(){
 
@@ -112,8 +114,8 @@
                         _extra_classes = scope.class;
                     }
 
-                    if (scope.imageClass != undefined) {
-                        _extra_image_classes = scope.imageClass;
+                    if (scope.imgClass != undefined) {
+                        _extra_img_classes = scope.imgClass;
                     }
 
                     if (scope.style != undefined) {
@@ -168,11 +170,15 @@
                         _text_shadow = scope.textShadow;
                     }
 
+                    if (scope.upperCase === true) {
+                        _str = _str.toUpperCase();
+                    }
+
                 }
 
                 function generateAvatar(name, w, h, bgcolor, textcolor, bgImage) {
 
-                    var WIDTH = 256, HEIGHT = 256;
+                    var WIDTH = 256, HEIGHT = 256, canvas, ctx, _font_size;
 
                     if (w != undefined && w > 0) {
                         if (h != undefined && h > 0) {
@@ -181,16 +187,16 @@
                         }
                     }
 
-                    var canvas = document.createElement('canvas');
+                    canvas = document.createElement('canvas');
                     canvas.id = "ngAvatar-" + Date.now();
                     canvas.width = WIDTH;
                     canvas.height = HEIGHT;
 
-                    var ctx = canvas.getContext('2d');
+                    ctx = canvas.getContext('2d');
                     ctx.fillStyle = bgcolor;
                     ctx.fillRect(0, 0, WIDTH, HEIGHT);
   
-                    var _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
+                    _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
                     ctx.font = _font_weight +" "+ _font_size +"px sans-serif";
 
                     if ( _text_shadow === true ) {

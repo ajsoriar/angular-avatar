@@ -37,14 +37,43 @@
                 $rootScope = _$rootScope_;
             }));
 
-            it('Replaces the element with the appropriate content. Display angular-avatar directive in the UI.', function() {
-
+            it('Replaces the element with the appropriate content. Display angular-avatar directive in the UI and rendering a png image', function() {
+                
+                //expect( 8 ).toBe(8);
+                
                 // Compile a piece of HTML containing the directive
                 var element = $compile('<div><ng-avatar initials="A"></ng-avatar></div>')($rootScope);
                 $rootScope.$digest();
 
                 // Check that the compiled element contains the templated content
-                expect( element.html() ).toContain("g5aCzwAI3AvXv3hroBLC0txXvvvYefh0YOD1DJtmzZEn");
+                expect(element.html()).toContain("data:image/png;base64"); // By default this directive will generate a png image.
+                
+            });
+
+            it('Replaces the element with the appropriate content. Display angular-avatar directive in the UI and rendering a jpeg image', function() {
+
+                // Compile a piece of HTML containing the directive
+                var element = $compile('<div><ng-avatar initials="B" picture-format="jpeg"></ng-avatar></div>')($rootScope);
+                $rootScope.$digest();
+
+                // Check that the compiled element contains the templated content
+                expect(element.html()).toContain("data:image/jpeg;");
+                
+            });
+
+            it('Generated IMG element sould have the class "image-class" ' , function() {
+
+                // Compile a piece of HTML containing the directive
+                var element = $compile('<div><ng-avatar initials="C" img-class="image-class" ></ng-avatar></div>')($rootScope);
+                $rootScope.$digest();
+
+                // Check that the compiled element contains the templated content
+                
+                //var str = element.html();
+                //console.log( "str: ", str );
+
+                expect(element.html()).toContain("image-class");
+                
             });
 
         });

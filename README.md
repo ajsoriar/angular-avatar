@@ -83,13 +83,14 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `width`              | 45    | An integer that sets the avatar's width and height in pixels using styles. Height of the avatar will be taken from it's width attribute. height attribute doesn't exist. |
 | `bg-color`           | #000  | This is the background color of the avatar. If not set, the background will be black. You can use regular css color's like color names, hex or rgb. |
 | `text-color`         | #fff  | The color of the letters. Letters will be white if this attribute is not set. Use regular css colors. |
+| `upper-case`         | false | Just put `upper-case="true"` and the input string will be transformed into capitals. |
 | `round-shape`        | false | When set to `true` the avatar will take a round shape. By default the avatar will have a square shape. |
 | `corner-radius`      | 0     | Square avatars can have rounded corners using this property. |
 | `picture-resolution` | 256   | This attribute sets the real resolution (width and height in pixels) of the picture that this directive generates. `width` attribute will scale the picture using only styles. | 
 | `pixelated`          | false | If ng-avatar's `width` is bigger than `picture-resolution` attribute, the web browser will scale the image and we will get a blurry picture. This attribute deactivates the anti-aliasing effect and you will get a pixelated image. Useful If you want a retro styling. |
 | `wrapper`            | true  | ng-avatar generates an img tag and a div layer that wraps the image. A boolean false value removes the div that wraps the avatar's image. This wrapping div has an special class `class="avatar-wrapper"` that can be used to apply extra styling. ng-avatar uses this div to generate a round avatar applying extra styles when round-shape attribute is true, `round-shape="true"` |
 | `class`              | null  | Use this attribute in the same way it is used in common html tags. |
-| `imgClass`           | null  | Use this attribute in the same way it is used in common html tags. |
+| `img-class`          | null  | Add an additional class to the generated image. Use the attribute in the same way it is used in common html tags. |
 | `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |

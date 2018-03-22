@@ -12,7 +12,7 @@
     "avatar", "angular-avatar", "letter avatar", "initials avatar", "angular avatar", "profile picture", "string avatar", "ng-avatar"
   ],
   "dependencies": {
-    "angular": "1.4.5",
+    "angular": "1.4.5"
   },
   "devDependencies": {
      "angular-mocks": "1.4.5"

@@ -97,7 +97,7 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `colors-palette`     | default colors | Change the palette used by `auto-color`. You can provide an array in your HTML or via the controller. |
 | `text-shadow`        | false | This paints an elegant thin shadow around the edges of each letter. |
 
-#### 4 License
+#### 5 License
 
 MIT
 

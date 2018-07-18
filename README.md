@@ -14,6 +14,7 @@ This example in plunker: https://plnkr.co/edit/bhnvU3?p=preview
 
 #### 1 Download and Install angular-avatar:
 
+ - Yarn: **yarn add angular-avatar**
  - Bower: **bower install angular-avatar**
  - NPM: **npm install angular-avatar**
  - NuGet: **PM> Install-Package angular-avatar**

@@ -10,6 +10,8 @@ Angular Avatar is a simple and lightweight AngularJS directive that generates a 
 
 This example in plunker: https://plnkr.co/edit/bhnvU3?p=preview
 
+React version here: <https://github.com/ajsoriar/react-string-avatar#readme>
+
 ## Quick start. 
 
 #### 1 Download and Install angular-avatar:

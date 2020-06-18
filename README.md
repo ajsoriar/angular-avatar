@@ -97,6 +97,7 @@ Run the live example in plunker: http://plnkr.co/edit/TfCxUn?p=preview
 | `style`              | null  | Use this attribute in the same way it is used in common html tags. |
 | `picture-format`     | png   | Set `picture-format="jpeg"` and the avatar will be rendered as a jpeg. If not set, png format will be used by default. |
 | `auto-color`         | false | By default the generated picture will have a black background if no color is assigned. Setting `auto-color="true"` will automatically assign a color to the avatar's background depending on the combination of characters used. |
+| `use-full-string-for-colors` | false | When using `auto-color` and `string`, determine the color based on all of the characters in the string, not just the initials |
 | `colors-palette`     | default colors | Change the palette used by `auto-color`. You can provide an array in your HTML or via the controller. |
 | `text-shadow`        | false | This paints an elegant thin shadow around the edges of each letter. |
 

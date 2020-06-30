@@ -35,6 +35,7 @@
                 pictureFormat: '@pictureFormat',
                 colorsPalette: '=colorsPalette',
                 autoColor: '=autoColor',
+                useFullStringForColors: '=useFullStringForColors',
                 fontWeight: '@fontWeight',
                 fontScale: '@fontScale',
                 textShadow: '=textShadow',
@@ -61,6 +62,7 @@
                     _picture_format = "png",
                     _colors_palette = ["#bdc3c7","#6f7b87","#2c3e50","#2f3193","#662d91","#922790","#ec2176","#ed1c24","#f36622","#f8941e","#fab70f","#fdde00","#d1d219","#8ec73f","#00a650","#00aa9c","#00adef","#0081cd","#005bab"],
                     _autoColor = false,
+                    _useFullStringForColors = false,
                     _font_weight = 100,
                     _font_scale = 100,
                     _text_shadow = false,
@@ -147,13 +149,24 @@
                     } else {
 
                         if (scope.autoColor != undefined) {
+                            if (scope.useFullStringForColors != undefined) {
+                                _useFullStringForColors = scope.useFullStringForColors;
+                            }
 
                             _autoColor = scope.autoColor;
                             if ( _autoColor === true ) {
-                                var i, lon = _str.length, charIndex=0,colorIndex;
-                                for(i=0; i<lon;i++) charIndex = _str.charCodeAt(i);
-                                colorIndex = charIndex % _colors_palette.length;
-                                _bgcolor = _colors_palette[ colorIndex ];
+                                if (_useFullStringForColors === true && scope.string != undefined) {
+                                    var i, lon = scope.string.length, charIndex=0,colorIndex;
+                                    for(i=0; i<lon;i++) charIndex += scope.string.charCodeAt(i);
+                                    colorIndex = charIndex % _colors_palette.length;
+                                    _bgcolor = _colors_palette[ colorIndex ];
+                                    console.log(scope.string, charIndex, colorIndex);
+                                } else {
+                                    var i, lon = _str.length, charIndex=0,colorIndex;
+                                    for(i=0; i<lon;i++) charIndex += _str.charCodeAt(i);
+                                    colorIndex = charIndex % _colors_palette.length;
+                                    _bgcolor = _colors_palette[ colorIndex ];
+                                }
                             }
                         }                     
                     }

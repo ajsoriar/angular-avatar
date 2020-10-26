@@ -50,7 +50,7 @@ describe('Unit testing angular-avatar directive', function() {
 
         // Check that the compiled element contains the templated content
         var str = element.html();
-        console.log( "str: ", str );
+        //console.log( "str: ", str );
         expect(element.html()).toContain("image-class");
         
     });

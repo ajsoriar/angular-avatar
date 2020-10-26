@@ -11,6 +11,7 @@ stories
 eslint-config.js
 yarn*
 node_modules/
+/tests
 /build
 /demo
 /docs

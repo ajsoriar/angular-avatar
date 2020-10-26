@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+
+        .group{
+            line-height: 0;
+            margin-bottom: 10px;
+        }
+        
+        .avatar{
+            display: inline-block !important;
+            margin: 1px;  
+        }
+
+    </style>
+    <script data-require="angularjs@1.5.5" data-semver="1.5.5" src="https://code.angularjs.org/1.5.5/angular.js"></script>
+    <!-- <script src="https://npmcdn.com/angular-avatar/dist/angular-avatar.min.js"></script> -->
+    <script src="../src/angular-avatar.js"></script>
+    <script>
+
+        (function(){
+            var app = angular.module('myApp', ['ngAvatar']);
+            app.controller('HelloController', function(){
+                console.log("controller!");
+            });
+        })();
+
+    </script>
+
+  </head>
+
+  <body ng-app="myApp" ng-controller="HelloController">
+    
+    <h1>Hello angular-avatar autocolor!</h1>
+    
+    <pre>auto-color="true" use-full-string-for-colors="true"</pre>
+    <div id="group_1" class="group"></div>
+    
+    <pre>auto-color="true"</pre>
+    <div id="group_2" class="group"></div>
+
+    <h2>use-full-string-for-colors</h2>
+    <p>When using <b>auto-color</b> and <b>string</b>, the option <b>use-full-string-for-colors</b> will determine the color based on all of the characters in the string, not just the initials</p>
+
+    <script>
+
+        (function(){
+
+            var str,
+                i,
+                j,
+                k,
+                lon = 10;
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                str += '<ng-avatar string="Emanuel" max-length="1" auto-color="true" class="avatar" font-weight="100" font-scale="150" use-full-string-for-colors="true"></ng-avatar>';
+                str += '<ng-avatar string="Emma" max-length="1" auto-color="true" class="avatar" font-weight="100" font-scale="150" use-full-string-for-colors="true"></ng-avatar>';
+            }
+            document.getElementById("group_1").innerHTML = str;
+
+            str = '';
+            for (i = 0; i < lon; i++) {
+                str += '<ng-avatar string="Emanuel" max-length="1" auto-color="true" class="avatar" font-weight="100" font-scale="150"></ng-avatar>';
+                str += '<ng-avatar string="Emma" max-length="1" auto-color="true" class="avatar" font-weight="100" font-scale="150"></ng-avatar>';
+            }
+            document.getElementById("group_2").innerHTML = str;
+
+        })();
+        
+    </script>
+    
+  </body>
+
+</html>

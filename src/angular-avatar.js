@@ -41,7 +41,8 @@
                 textShadow: '=textShadow',
                 bind: '=bind',
                 maxLength: '@maxLength',
-                upperCase: '=upperCase'
+                upperCase: '=upperCase',
+                altText: '@altText',
             },
             link: function(scope, element, attrs) {
 
@@ -68,7 +69,8 @@
                     _text_shadow = false,
                     _bind = false,
                     _img_width = "100%",
-                    _upperCase = false;
+                    _upperCase = false,
+                    _altText = "avatar";
 
                 function checkValues(){
 
@@ -86,19 +88,19 @@
 
                     if (scope.width != undefined) {
                         _long = scope.width;
-                    }   
+                    }
 
                     if (scope.wrapper != undefined) {
                         _wrapper = scope.wrapper;
-                        if ( _wrapper === false ) { 
+                        if ( _wrapper === false ) {
                             _img_width = _long;
                         }
                     }
 
                     if (scope.pixelated != undefined) {
                         _pixelated = scope.pixelated;
-                        if ( _pixelated === true ) { 
-                            _img_styling += "image-rendering:pixelated; image-rendering:-moz-crisp-edges;"; 
+                        if ( _pixelated === true ) {
+                            _img_styling += "image-rendering:pixelated; image-rendering:-moz-crisp-edges;";
                         }
                     }
 
@@ -142,7 +144,7 @@
 
                     if (scope.colorsPalette != undefined) {
                         _colors_palette = scope.colorsPalette;
-                    }                 
+                    }
 
                     if (scope.bgcolor != undefined) {
                         _bgcolor = scope.bgcolor;
@@ -168,7 +170,7 @@
                                     _bgcolor = _colors_palette[ colorIndex ];
                                 }
                             }
-                        }                     
+                        }
                     }
 
                     if (scope.fontWeight != undefined) {
@@ -187,6 +189,9 @@
                         _str = _str.toUpperCase();
                     }
 
+                    if (scope.altText != undefined) {
+                        _altText = scope.altText;
+                    }
                 }
 
                 function generateAvatar(name, w, h, bgcolor, textcolor, bgImage) {
@@ -208,15 +213,15 @@
                     ctx = canvas.getContext('2d');
                     ctx.fillStyle = bgcolor;
                     ctx.fillRect(0, 0, WIDTH, HEIGHT);
-  
-                    _font_size = WIDTH / (2 / ( _font_scale / 100 ));     
+
+                    _font_size = WIDTH / (2 / ( _font_scale / 100 ));
                     ctx.font = _font_weight +" "+ _font_size +"px sans-serif";
 
                     if ( _text_shadow === true ) {
                         ctx.shadowColor = "black";
-                        ctx.shadowOffsetX = 0; 
-                        ctx.shadowOffsetY = 0; 
-                        ctx.shadowBlur = 5;                        
+                        ctx.shadowOffsetX = 0;
+                        ctx.shadowOffsetY = 0;
+                        ctx.shadowBlur = 5;
                     }
 
                     ctx.textAlign = "center";
@@ -229,11 +234,11 @@
 
                 function getInitialsFromString(str){
 
-                    var output = "", 
-                        i = 0, 
+                    var output = "",
+                        i = 0,
                         str = str.split(" "),
                         len = str.length;
-                    
+
                     for ( i; i < len; i++ ) if ( str[i] != "" ) output += str[i][0]; //.toUpperCase();
                     return output;
                 }
@@ -246,7 +251,7 @@
 
                     var html = '';
                     if (_wrapper) html += '<div class="avatar-wrapper '+ _extra_classes +'" style="'+ _wrapper_styling +' width:' + _long + 'px; height:' + _long + 'px; '+ _extra_styles +'">';
-                    html += '<img src="' + imgData + '" class="avatar-picture '+ _extra_img_classes +'" style="'+ _img_styling +'" width="'+ _img_width +'" height="" />';
+                    html += '<img src="' + imgData + '" class="avatar-picture '+ _extra_img_classes +'" style="'+ _img_styling +'" width="'+ _img_width +'" height="" alt="' + _altText + '" />';
                     if (_wrapper) html += '</div>';
 
                     var replacementElement = angular.element(html);
@@ -264,6 +269,12 @@
                     });
 
                     scope.$watch( 'initials', function ( value ) {
+
+                        checkValues();
+                        render();
+                    });
+
+                    scope.$watch( 'altText', function ( value ) {
 
                         checkValues();
                         render();

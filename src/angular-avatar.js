@@ -255,6 +255,13 @@
                     if (_wrapper) html += '</div>';
 
                     var replacementElement = angular.element(html);
+
+                    if (_wrapper) {
+                        replacementElement.find('img')[0].alt = _altText;
+                    } else {
+                        replacementElement[0].alt = _altText;
+                    }
+
                     currentElement.replaceWith(replacementElement);
                     currentElement = replacementElement;
                 }
